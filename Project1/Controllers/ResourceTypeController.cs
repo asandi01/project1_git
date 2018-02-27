@@ -6,25 +6,25 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Project1.Controllers {
-    public class ProviderController : Controller {
-        // GET: Provider
+    public class ResourceTypeController : Controller {
+        // GET: RecurenceType
         public ActionResult Index() {
-            ProviderDBHandle dbhandle = new ProviderDBHandle();
+            ResourceTypeDBHandle dbhandle = new ResourceTypeDBHandle();
             ModelState.Clear();
             return View(dbhandle.Get());
         }
-
-        // GET: Provider/Create
+        
+        // GET: RecurenceType/Create
         public ActionResult Create() {
             return View();
         }
 
-        // POST: Provider/Create
+        // POST: RecurenceType/Create
         [HttpPost]
-        public ActionResult Create(ProviderModel smodel) {
+        public ActionResult Create(ResourceTypeModel smodel) {
             try {
                 if (ModelState.IsValid) {
-                    ProviderDBHandle sdb = new ProviderDBHandle();
+                    ResourceTypeDBHandle sdb = new ResourceTypeDBHandle();
                     if (sdb.Add(smodel)) {
                         ViewBag.Message = "Details Added Successfully";
                         ModelState.Clear();
@@ -37,28 +37,28 @@ namespace Project1.Controllers {
             }
         }
 
-        // GET: Provider/Edit/5
+        // GET: RecurenceType/Edit/5
         public ActionResult Edit(int id) {
-            ProviderDBHandle sdb = new ProviderDBHandle();
+            ResourceTypeDBHandle sdb = new ResourceTypeDBHandle();
             return View(sdb.Get().Find(smodel => smodel.id == id));
         }
 
-        // POST: Provider/Edit/5
+        // POST: RecurenceType/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, ProviderModel smodel) {
+        public ActionResult Edit(int id, ResourceTypeModel smodel) {
             try {
-                ProviderDBHandle sdb = new ProviderDBHandle();
+                ResourceTypeDBHandle sdb = new ResourceTypeDBHandle();
                 sdb.UpdateDetails(smodel);
                 return RedirectToAction("Index");
             } catch {
                 return View();
             }
         }
-        
-        // GET: Provider/Delete/5
+
+        // GET: RecurenceType/Delete/5
         public ActionResult Delete(int id) {
             try {
-                ProviderDBHandle sdb = new ProviderDBHandle();
+                ResourceTypeDBHandle sdb = new ResourceTypeDBHandle();
                 if (sdb.Delete(id)) {
                     ViewBag.AlertMsg = "Deleted Successfully";
                 }

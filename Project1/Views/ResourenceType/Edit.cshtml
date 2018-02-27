@@ -1,9 +1,10 @@
-﻿@model Project1.Models.ProviderModel
+﻿@model Project1.Models.ResourceTypeModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/shared/_LayoutPage.cshtml";
 }
+
 
 <!-- Page Heading -->
 <div class="row">
@@ -26,7 +27,6 @@
 
 <div class="row">
     <div class="col-xl-12">
-        <h2 class="page-header">Create</h2>
 
         @using (Html.BeginForm()) {
             @Html.AntiForgeryToken()
@@ -35,6 +35,8 @@
                 <h4>ProviderModel</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.detail, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -45,12 +47,11 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-default" />
+                        <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
-        <p>@ViewBag.Message</p>
 
         <div>
             @Html.ActionLink("Back to List", "Index")

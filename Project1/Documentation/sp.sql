@@ -107,3 +107,48 @@ as
 begin  
    select * from provider
 End
+
+
+/*==================recurenceType=========================*/
+
+
+Create procedure [dbo].[AddNewRecurenceType](
+	@detail varchar(500)
+)  
+as
+begin
+	Insert into recurenceType values(
+		@detail
+	)
+End
+
+
+
+Create procedure [dbo].[UpdateRecurenceType](  
+	@id int,
+	@detail varchar(500)
+) 
+as  
+begin  
+	UPDATE [recurenceType]   
+		SET
+		[detail] = @detail
+			WHERE [id] = @id
+End
+
+
+
+Create procedure [dbo].[DeleteRecurenceType](  
+   @id int  
+)  
+as   
+begin  
+   DELETE FROM recurenceType where id=@id 
+End
+
+
+Create Procedure [dbo].[GetRecurenceTypes]  
+as  
+begin  
+   select * from recurenceType
+End

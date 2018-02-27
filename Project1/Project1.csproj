@@ -176,11 +176,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentRecordController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
+    <Compile Include="Controllers\ResourceTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PaymentRecordModel.cs" />
+    <Compile Include="Models\ResourceTypeDBHandle.cs" />
+    <Compile Include="Models\ResourceTypeModel.cs" />
     <Compile Include="Models\ProviderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\PaymentRecordDBHandle.cs" />
@@ -207,6 +210,9 @@
     <Content Include="Views\Provider\Index.cshtml" />
     <Content Include="Views\Provider\Create.cshtml" />
     <Content Include="Views\Provider\Edit.cshtml" />
+    <Content Include="Views\ResourenceType\Index.cshtml" />
+    <Content Include="Views\ResourenceType\Edit.cshtml" />
+    <Content Include="Views\ResourenceType\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -217,6 +223,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\PaymentRecord\" />
+    <Folder Include="Views\RecurenceType\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
