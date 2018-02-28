@@ -173,7 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ExpenseCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomeRecordController.cs" />
     <Compile Include="Controllers\PaymentRecordController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
     <Compile Include="Controllers\ResourceTypeController.cs" />
@@ -181,8 +183,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IncomeRecordDBHandle.cs" />
+    <Compile Include="Models\IncomeRecordModel.cs" />
     <Compile Include="Models\PaymentRecordModel.cs" />
+    <Compile Include="Models\ExpenseCategoryDBHandle.cs" />
     <Compile Include="Models\ResourceTypeDBHandle.cs" />
+    <Compile Include="Models\ExpenseCategoryModel.cs" />
     <Compile Include="Models\ResourceTypeModel.cs" />
     <Compile Include="Models\ProviderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -210,9 +216,15 @@
     <Content Include="Views\Provider\Index.cshtml" />
     <Content Include="Views\Provider\Create.cshtml" />
     <Content Include="Views\Provider\Edit.cshtml" />
-    <Content Include="Views\ResourenceType\Index.cshtml" />
-    <Content Include="Views\ResourenceType\Edit.cshtml" />
-    <Content Include="Views\ResourenceType\Create.cshtml" />
+    <Content Include="Views\ResourceType\Index.cshtml" />
+    <Content Include="Views\ResourceType\Edit.cshtml" />
+    <Content Include="Views\ResourceType\Create.cshtml" />
+    <Content Include="Views\ExpenseCategory\Index.cshtml" />
+    <Content Include="Views\ExpenseCategory\Create.cshtml" />
+    <Content Include="Views\ExpenseCategory\Edit.cshtml" />
+    <Content Include="Views\IncomeRecord\Index.cshtml" />
+    <Content Include="Views\IncomeRecord\Create.cshtml" />
+    <Content Include="Views\IncomeRecord\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

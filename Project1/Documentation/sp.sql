@@ -152,3 +152,103 @@ as
 begin  
    select * from recurenceType
 End
+
+
+/*=====================================*/
+
+Create procedure [dbo].[AddExpenseCategoryType](
+	@detail varchar(500),
+	@priority int
+)  
+as
+begin
+	Insert into expenseCategory values(
+		@detail,
+		@priority
+	)
+End
+
+Create procedure [dbo].[UpdateexpenseCategory](  
+	@id int,
+	@detail varchar(500),
+	@priority int
+) 
+as  
+begin  
+	UPDATE [expenseCategory]   
+		SET
+		[detail] = @detail,
+		[priority] = @priority
+			WHERE [id] = @id
+End
+
+
+Create procedure [dbo].[DeleteexpenseCategory](  
+   @id int  
+)  
+as   
+begin  
+   DELETE FROM expenseCategory where id=@id 
+End
+
+
+Create Procedure [dbo].[GetexpenseCategorys]  
+as  
+begin  
+   select * from expenseCategory
+End
+
+
+
+/*============incomeRecord=================*/
+
+Create procedure [dbo].[AddIncomeRecord](
+	@idUser int,
+	@detail varchar(500),
+	@amount float,
+	@paymentDate date
+)  
+as
+begin
+	Insert into incomeRecord values(
+		@idUser,
+		@detail,
+		@amount,
+		@paymentDate
+	)
+End;
+
+
+
+Create procedure [dbo].[UpdateIncomeRecord](  
+	@id int,
+	@detail varchar(500),
+	@amount float,
+	@paymentDate date
+) 
+as  
+begin  
+	UPDATE [incomeRecord]   
+		SET
+		[detail] = @detail,
+		[amount] = @amount,
+		[paymentDate] = @paymentDate
+			WHERE [id] = @id
+End;
+
+
+
+Create procedure [dbo].[DeleteIncomeRecord](  
+   @id int  
+)  
+as   
+begin  
+   DELETE FROM incomeRecord where id=@id 
+End;
+
+
+Create Procedure [dbo].[GetIncomeRecords]  
+as  
+begin  
+   select * from incomeRecord WHERE idUser = @idUser
+End;
