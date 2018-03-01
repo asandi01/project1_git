@@ -5,8 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Text;
-using System.Security.Cryptography;
+using System.Globalization;
 
 namespace Project1.Models {
     public class PaymentRecordDBHandle {
@@ -20,18 +19,17 @@ namespace Project1.Models {
         // **************** ADD NEW *********************
         public bool Add(PaymentRecordModel smodel) {
             connection();
-            SqlCommand cmd = new SqlCommand("AddNewPayment", con);
+            SqlCommand cmd = new SqlCommand("AddPaymentRecord", con);
             cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@idPaymentRecord", smodel.idPaymentRecord);
+            
             cmd.Parameters.AddWithValue("@idUser", smodel.idUser);
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
-            cmd.Parameters.AddWithValue("@anount", smodel.amount);
+            cmd.Parameters.AddWithValue("@amount", smodel.amount);
             cmd.Parameters.AddWithValue("@recurrence", smodel.recurrence);
-            cmd.Parameters.AddWithValue("@recurrenceType", smodel.recurrenceType);
+            cmd.Parameters.AddWithValue("@recurrenciaTypeId", smodel.recurrenciaTypeId);
             cmd.Parameters.AddWithValue("@paymentDate", smodel.paymentDate);
-            cmd.Parameters.AddWithValue("@provider", smodel.provider);
-            cmd.Parameters.AddWithValue("@serviceType", smodel.serviceType);
+            cmd.Parameters.AddWithValue("@providerId", smodel.providerId);
+            cmd.Parameters.AddWithValue("@expenseCategoryId", smodel.expenseCategoryId);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -46,10 +44,12 @@ namespace Project1.Models {
         // ********** VIEW DETAILS ********************
         public List<PaymentRecordModel> Get() {
             connection();
-            List<PaymentRecordModel> Paymentlist = new List<PaymentRecordModel>();
+            List<PaymentRecordModel> list = new List<PaymentRecordModel>();
 
-            SqlCommand cmd = new SqlCommand("GetPayment", con);
+            SqlCommand cmd = new SqlCommand("GetPaymentRecords", con);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@idUser", 1);
+
             SqlDataAdapter sd = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
 
@@ -57,38 +57,41 @@ namespace Project1.Models {
             sd.Fill(dt);
             con.Close();
 
+
             foreach (DataRow dr in dt.Rows) {
-                Paymentlist.Add(
+                /*string dateString = Convert.ToString(dr["paymentDate"]);
+                DateTime dateTime = DateTime.Parse(dateString);
+                string format = "MM/dd/YYYY";   // Use this format.
+                dateTime.ToString(format);*/
+                list.Add(
                     new PaymentRecordModel {
-                        idPaymentRecord = Convert.ToInt32(dr["idPaymentRecord"]),
-                        idUser = Convert.ToInt32(dr["idUser"]),
+                        id = Convert.ToInt32(dr["id"]),
                         detail = Convert.ToString(dr["detail"]),
-                        amount = Convert.ToDouble(dr["amount"]),
-                        recurrence = Convert.ToBoolean(dr["recurrence"]),
-                        recurrenceType = Convert.ToInt32(dr["recurrenceType"]),
+                        amount = Convert.ToInt32(dr["amount"]),
+                        recurrence = Convert.ToInt32(dr["recurrence"]),
+                        recurrenciaTypeId = Convert.ToInt32(dr["recurrenciaTypeId"]),
                         paymentDate = Convert.ToDateTime(dr["paymentDate"]),
-                        provider = Convert.ToString(dr["provider"]),
-                        serviceType = Convert.ToInt32(dr["serviceType"])
-                    });
+                        providerId = Convert.ToInt32(dr["providerId"]),
+                        expenseCategoryId = Convert.ToInt32(dr["expenseCategoryId"])
+            });
             }
-            return Paymentlist;
+            return list;
         }
 
         // ***************** UPDATE DETAILS *********************
         public bool UpdateDetails(PaymentRecordModel smodel) {
             connection();
-            SqlCommand cmd = new SqlCommand("UpdatePayment", con);
+            SqlCommand cmd = new SqlCommand("UpdatePaymentRecord", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@idPaymentRecord", smodel.idPaymentRecord);
-            cmd.Parameters.AddWithValue("@idUser", smodel.idUser);
+            cmd.Parameters.AddWithValue("@id", smodel.id);
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
-            cmd.Parameters.AddWithValue("@anount", smodel.amount);
+            cmd.Parameters.AddWithValue("@amount", smodel.amount);
             cmd.Parameters.AddWithValue("@recurrence", smodel.recurrence);
-            cmd.Parameters.AddWithValue("@recurrenceType", smodel.recurrenceType);
+            cmd.Parameters.AddWithValue("@recurrenciaTypeId", smodel.recurrenciaTypeId);
             cmd.Parameters.AddWithValue("@paymentDate", smodel.paymentDate);
-            cmd.Parameters.AddWithValue("@provider", smodel.provider);
-            cmd.Parameters.AddWithValue("@serviceType", smodel.serviceType);
+            cmd.Parameters.AddWithValue("@providerId", smodel.providerId);
+            cmd.Parameters.AddWithValue("@expenseCategoryId", smodel.expenseCategoryId);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -100,13 +103,13 @@ namespace Project1.Models {
                 return false;
         }
 
-        // ********************** DELETE Payment DETAILS *******************
+        // ********************** DELETE DETAILS *******************
         public bool Delete(int id) {
             connection();
-            SqlCommand cmd = new SqlCommand("DeletePayment", con);
+            SqlCommand cmd = new SqlCommand("DeletePaymentRecord", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@idPaymentRecord", id);
+            cmd.Parameters.AddWithValue("@id", id);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -117,6 +120,6 @@ namespace Project1.Models {
             else
                 return false;
         }
-
+        
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Project1.Controllers {
     public class IncomeRecordController : Controller {
+
         // GET: IncomeRecord
         public ActionResult Index() {
             IncomeRecordDBHandle dbhandle = new IncomeRecordDBHandle();

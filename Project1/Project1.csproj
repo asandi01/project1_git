@@ -175,24 +175,24 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExpenseCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IncomeRecordController.cs" />
     <Compile Include="Controllers\PaymentRecordController.cs" />
+    <Compile Include="Controllers\IncomeRecordController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
     <Compile Include="Controllers\ResourceTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PaymentRecordDBHandle.cs" />
     <Compile Include="Models\IncomeRecordDBHandle.cs" />
-    <Compile Include="Models\IncomeRecordModel.cs" />
     <Compile Include="Models\PaymentRecordModel.cs" />
+    <Compile Include="Models\IncomeRecordModel.cs" />
     <Compile Include="Models\ExpenseCategoryDBHandle.cs" />
     <Compile Include="Models\ResourceTypeDBHandle.cs" />
     <Compile Include="Models\ExpenseCategoryModel.cs" />
     <Compile Include="Models\ResourceTypeModel.cs" />
     <Compile Include="Models\ProviderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Models\PaymentRecordDBHandle.cs" />
     <Compile Include="Models\ProviderDBHandle.cs" />
     <Compile Include="Models\UsersDBHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +225,9 @@
     <Content Include="Views\IncomeRecord\Index.cshtml" />
     <Content Include="Views\IncomeRecord\Create.cshtml" />
     <Content Include="Views\IncomeRecord\Edit.cshtml" />
+    <Content Include="Views\PaymentRecord\Index.cshtml" />
+    <Content Include="Views\PaymentRecord\Create.cshtml" />
+    <Content Include="Views\PaymentRecord\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -234,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\PaymentRecord\" />
     <Folder Include="Views\RecurenceType\" />
   </ItemGroup>
   <PropertyGroup>

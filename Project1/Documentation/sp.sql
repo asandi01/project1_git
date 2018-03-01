@@ -247,8 +247,89 @@ begin
 End;
 
 
-Create Procedure [dbo].[GetIncomeRecords]  
+CREATE or ALTER Procedure [dbo].[GetIncomeRecords](
+	@idUser int
+)
+AS  
+BEGIN  
+	SELECT detail,
+			amount,
+			paymentDate
+		FROM incomeRecord
+			WHERE ir.idUser = @idUser
+END;
+
+
+
+
+
+/*=====================paymentRecord=====================*/
+
+Create or alter procedure [dbo].[AddPaymentRecord](
+	@idUser int,
+	@detail varchar(500),
+	@amount float,
+	@recurrence int,
+	@recurrenciaTypeId int,
+	@paymentDate date,
+	@providerId int,
+	@expenseCategoryId int
+)  
+as
+begin
+	Insert into paymentRecord values(
+		@idUser,
+		@detail,
+		@amount,
+		@recurrence,
+		@recurrenciaTypeId,
+		@paymentDate,
+		@providerId,
+		@expenseCategoryId
+	)
+End;
+
+
+
+Create procedure [dbo].[UpdatePaymentRecord](  
+	@id int,
+	@detail varchar(500),
+	@amount float,
+	@recurrence int,
+	@recurrenciaTypeId int,
+	@paymentDate date,
+	@providerId int,
+	@expenseCategoryId int
+) 
 as  
 begin  
-   select * from incomeRecord WHERE idUser = @idUser
+	UPDATE [paymentRecord]   
+		SET
+		[detail] = @detail,
+		[amount] = @amount,
+		[recurrence] = @recurrence,
+		[recurrenciaTypeId] = @recurrenciaTypeId,
+		[paymentDate] = @paymentDate,
+		[providerId] = @providerId,
+		[expenseCategoryId] = @expenseCategoryId
+			WHERE [id] = @id
+End;
+
+
+
+Create procedure [dbo].[DeletePaymentRecord](  
+   @id int
+)  
+as   
+begin  
+   DELETE FROM paymentRecord where id=@id 
+End;
+
+
+Create Procedure [dbo].[GetPaymentRecords](
+	@idUser int
+)
+as  
+begin  
+   select * from paymentRecord WHERE idUser = @idUser
 End;

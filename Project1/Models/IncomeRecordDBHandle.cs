@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Globalization;
 
 namespace Project1.Models {
     public class IncomeRecordDBHandle {
@@ -52,7 +53,12 @@ namespace Project1.Models {
             sd.Fill(dt);
             con.Close();
 
+
             foreach (DataRow dr in dt.Rows) {
+                /*string dateString = Convert.ToString(dr["paymentDate"]);
+                DateTime dateTime = DateTime.Parse(dateString);
+                string format = "MM/dd/YYYY";   // Use this format.
+                dateTime.ToString(format);*/
                 list.Add(
                     new IncomeRecordModel {
                         id = Convert.ToInt32(dr["id"]),
@@ -73,7 +79,7 @@ namespace Project1.Models {
             cmd.Parameters.AddWithValue("@id", smodel.id);
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
             cmd.Parameters.AddWithValue("@amount", smodel.amount);
-            cmd.Parameters.AddWithValue("@paymentDate", smodel.Now);
+            cmd.Parameters.AddWithValue("@paymentDate", smodel.paymentDate);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

@@ -16,7 +16,9 @@ namespace Project1.Models {
 
         [Required(ErrorMessage = "Amount is required.")]
         public double amount { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        [Required(ErrorMessage = "Payment Date is required.")]
         public DateTime paymentDate { get; set; }
 
         public DateTime Now { get; }
