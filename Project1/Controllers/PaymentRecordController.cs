@@ -17,6 +17,18 @@ namespace Project1.Controllers {
         
         // GET: PaymentRecord/Create
         public ActionResult Create() {
+            ProviderDBHandle pdbh = new ProviderDBHandle();
+            var listProvider = pdbh.Get();
+            var listaSelectItemProcider = listProvider.Select(x => new SelectListItem { Text = x.detail, Value = x.id.ToString() }).ToList();
+            ViewBag.providerList = listaSelectItemProcider;
+
+            ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
+            var listCaterory = exdbh.Get();
+            var listaSelectItemcategory = listCaterory.Select(x => new SelectListItem { Text = x.detail, Value = x.id.ToString() }).ToList();
+            ViewBag.categoryList = listaSelectItemcategory;
+
+
+
             return View();
         }
 
@@ -67,6 +79,11 @@ namespace Project1.Controllers {
             } catch {
                 return View();
             }
+        }
+        
+        public IEnumerable<ProviderModel> getListProviders() {
+            ProviderDBHandle pdbh = new ProviderDBHandle();
+            return pdbh.Get();
         }
     }
 }

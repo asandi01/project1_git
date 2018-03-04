@@ -35,14 +35,6 @@
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(model => model.idUser, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.idUser, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.idUser, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
                     @Html.LabelFor(model => model.detail, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.detail, new { htmlAttributes = new { @class = "form-control" } })
@@ -85,17 +77,25 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.providerId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.providerId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("Providers",
+                           (IEnumerable<SelectListItem>)ViewBag.providerList, 
+                           new { @class = "form-control" }
+                        )
                         @Html.ValidationMessageFor(model => model.providerId, "", new { @class = "text-danger" })
                     </div>
+                    @Html.HiddenFor(model => model.providerId)
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.expenseCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.expenseCategoryId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownList("expenseCategory",
+                           (IEnumerable<SelectListItem>)ViewBag.categoryList,
+                           new { @class = "form-control" }
+                        )
                         @Html.ValidationMessageFor(model => model.expenseCategoryId, "", new { @class = "text-danger" })
                     </div>
+                    @Html.HiddenFor(model => model.expenseCategoryId)
                 </div>
 
                 <div class="form-group">
