@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Project1.Controllers {
     public class PaymentRecordController : Controller {
@@ -14,20 +15,17 @@ namespace Project1.Controllers {
             ModelState.Clear();
             return View(dbhandle.Get());
         }
-        
+
         // GET: PaymentRecord/Create
         public ActionResult Create() {
             ProviderDBHandle pdbh = new ProviderDBHandle();
-            var listProvider = pdbh.Get();
-            var listaSelectItemProcider = listProvider.Select(x => new SelectListItem { Text = x.detail, Value = x.id.ToString() }).ToList();
-            ViewBag.providerList = listaSelectItemProcider;
+            ViewBag.providerList = pdbh.Get();
 
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
-            var listCaterory = exdbh.Get();
-            var listaSelectItemcategory = listCaterory.Select(x => new SelectListItem { Text = x.detail, Value = x.id.ToString() }).ToList();
-            ViewBag.categoryList = listaSelectItemcategory;
+            ViewBag.categoryList = exdbh.Get();
 
-
+            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            ViewBag.resourceTypeList = rtdbh.Get();
 
             return View();
         }
@@ -35,6 +33,18 @@ namespace Project1.Controllers {
         // POST: PaymentRecord/Create
         [HttpPost]
         public ActionResult Create(PaymentRecordModel smodel) {
+
+            ProviderDBHandle pdbh = new ProviderDBHandle();
+            ViewBag.providerList = pdbh.Get();
+
+            ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
+            ViewBag.categoryList = exdbh.Get();
+
+            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            ViewBag.resourceTypeList = rtdbh.Get();
+
+
+
             try {
                 if (ModelState.IsValid) {
                     PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();

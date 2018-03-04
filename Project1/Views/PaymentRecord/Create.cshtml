@@ -23,6 +23,8 @@
 </div>
 <!-- /.row -->
 
+
+
 <div class="row">
     <div class="col-xl-12">
         <h2 class="page-header">Create</h2>
@@ -61,9 +63,15 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.recurrenciaTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.recurrenciaTypeId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.recurrenciaTypeId, "", new { @class = "text-danger" })
+                        <select id="recurrenciaTypeIdSelect" name="recurrenciaTypeIdSelect" class="form-control">
+                            @{
+                                foreach (var listData in ViewBag.resourceTypeList) {
+                            <option value="@listData.id">@listData.detail</option>
+                                }
+                            }
+                        </select>
                     </div>
+                    @Html.HiddenFor(model => model.recurrenciaTypeId)
                 </div>
 
                 <div class="form-group">
@@ -77,11 +85,13 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.providerId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("Providers",
-                           (IEnumerable<SelectListItem>)ViewBag.providerList, 
-                           new { @class = "form-control" }
-                        )
-                        @Html.ValidationMessageFor(model => model.providerId, "", new { @class = "text-danger" })
+                        <select id="providerIdSelect" name="providerIdSelect" class="form-control">
+                            @{
+                                foreach (var listData in ViewBag.providerList) {
+                                    <option value="@listData.id">@listData.detail</option>
+                                }
+                            }
+                        </select>
                     </div>
                     @Html.HiddenFor(model => model.providerId)
                 </div>
@@ -89,22 +99,23 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.expenseCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("expenseCategory",
-                           (IEnumerable<SelectListItem>)ViewBag.categoryList,
-                           new { @class = "form-control" }
-                        )
-                        @Html.ValidationMessageFor(model => model.expenseCategoryId, "", new { @class = "text-danger" })
+                        <select id="expenseCategoryIdSelect" name="expenseCategoryIdSelect" class="form-control">
+                            @{
+                                foreach (var listData in ViewBag.categoryList) {
+                                    <option value="@listData.id">@listData.detail</option>
+                                }
+                            }
+                        </select>
                     </div>
                     @Html.HiddenFor(model => model.expenseCategoryId)
                 </div>
-
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Create" class="btn btn-default" />
                     </div>
                 </div>
             </div>
-        }
+                                }
 
         <div>
             @Html.ActionLink("Back to List", "Index")
@@ -112,3 +123,22 @@
 
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#providerId').val($('#providerIdSelect').val());
+        $('#providerIdSelect').on('change', function () {
+            $('#providerId').val(this.value);
+        })
+
+        $('#expenseCategoryId').val($('#expenseCategoryIdSelect').val());
+        $('#expenseCategoryIdSelect').on('change', function () {
+            $('#expenseCategoryId').val(this.value);
+        })
+
+        $('#recurrenciaTypeId').val($('#recurrenciaTypeIdSelect').val());
+        $('#recurrenciaTypeIdSelect').on('change', function () {
+            $('#recurrenciaTypeId').val(this.value);
+        })
+    });
+</script>
