@@ -228,6 +228,7 @@
     <Content Include="Views\PaymentRecord\Index.cshtml" />
     <Content Include="Views\PaymentRecord\Create.cshtml" />
     <Content Include="Views\PaymentRecord\Edit.cshtml" />
+    <Content Include="Views\PaymentRecord\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,6 +239,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\RecurenceType\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

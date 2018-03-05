@@ -33,9 +33,6 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.idUser)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.detail)
                 </th>
                 <th>
@@ -45,28 +42,13 @@
                     @Html.DisplayNameFor(model => model.recurrence)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.recurrenciaTypeId)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.paymentDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.providerId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.expenseCategoryId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Now)
                 </th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model) {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.idUser)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.detail)
                     </td>
@@ -77,24 +59,12 @@
                         @Html.DisplayFor(modelItem => item.recurrence)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.recurrenciaTypeId)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.paymentDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.providerId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.expenseCategoryId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Now)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
                         @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { onclick = "return confirm('Delete item?');" })
                     </td>
                 </tr>
             }

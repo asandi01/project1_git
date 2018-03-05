@@ -11,23 +11,30 @@ namespace Project1.Models {
 
         public int idUser { get; set; }
 
+        [Display(Name = "Detail")]
         [Required(ErrorMessage = "Detail is required.")]
         public string detail { get; set; }
 
+        [Display(Name = "Amount")]
         [Required(ErrorMessage = "Amount is required.")]
         public double amount { get; set; }
 
+        [Display(Name = "Recurrence")]
         [Required(ErrorMessage = "Pecurrence is required.")]
         public int recurrence { get; set; }
-        
+
+        [Display(Name = "Recurrence Option")]
         public int recurrenciaTypeId { get; set; }
 
+        [Display(Name = "Payment date")]
         [DisplayFormat(DataFormatString = "{0:d}")]
         [Required(ErrorMessage = "Payment Date is required.")]
         public DateTime paymentDate { get; set; }
-        
+
+        [Display(Name = "Provider Option")]
         public int providerId { get; set; }
-        
+
+        [Display(Name = "Expense Category Option")]
         public int expenseCategoryId { get; set; }
         
         public DateTime Now { get; }

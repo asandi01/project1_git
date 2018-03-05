@@ -22,7 +22,7 @@ namespace Project1.Models {
             SqlCommand cmd = new SqlCommand("AddPaymentRecord", con);
             cmd.CommandType = CommandType.StoredProcedure;
             
-            cmd.Parameters.AddWithValue("@idUser", smodel.idUser);
+            cmd.Parameters.AddWithValue("@idUser", 1);
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
             cmd.Parameters.AddWithValue("@amount", smodel.amount);
             cmd.Parameters.AddWithValue("@recurrence", smodel.recurrence);

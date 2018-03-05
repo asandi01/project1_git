@@ -1,0 +1,135 @@
+﻿@model Project1.Models.PaymentRecordModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/shared/_LayoutPage.cshtml";
+}
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Payment Data
+            <small>Details</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i>  <a href="/index.html">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-edit"></i>  <a href="/PaymentRecord">Payment Record</a>
+            </li>
+            <li class="active">
+                <i class="fa fa-file"></i> Paymnet Details
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="row">
+            <div class="col-xl-6 col-lg-12">
+
+                <div class="card card-success card-inverse">
+                    <div class="card-header card-success">
+                        Payment Data
+                    </div>
+                    <div class="card-block bg-white">
+                        <dl class="">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.detail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.detail)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.amount)
+                            </dt>
+
+                            <dd>
+                                $@Html.DisplayFor(model => model.amount)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.recurrence)
+                            </dt>
+
+                            <dd>
+                                @{ 
+                                    if(Model.recurrence == 1) {
+                                        <p>True</p>
+                                    } else {
+                                        <p>False</p>
+                                    }
+                                }
+                            </dd>
+                            @{ 
+                                if (Model.recurrence == 1) {
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.recurrenciaTypeId)
+                                    </dt>
+
+                                    <dd>
+                                        @{
+                                            foreach (var listData in ViewBag.resourceTypeList) {
+                                                if (Model.recurrenciaTypeId == listData.id) {
+                                                    <p>@listData.detail</p>
+                                                }
+                                            }
+                                        }
+                                    </dd>
+                                    }
+                            }
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.paymentDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.paymentDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.providerId)
+                            </dt>
+
+                            <dd>
+                                @{
+                                    foreach (var listData in ViewBag.providerList) {
+                                        if (Model.providerId == listData.id) {
+                                            <p>@listData.detail</p>
+                                        }
+                                    }
+                                }
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.expenseCategoryId)
+                            </dt>
+
+                            <dd>
+                                @{
+                                    foreach (var listData in ViewBag.categoryList) {
+                                        if (Model.expenseCategoryId == listData.id) {
+                                            <p>@listData.detail</p>
+                                        }
+                                    }
+                                }
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+                
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

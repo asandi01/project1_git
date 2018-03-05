@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 namespace Project1.Controllers {
     public class PaymentRecordController : Controller {
 
+
+
         // GET: PaymentRecord
         public ActionResult Index() {
             PaymentRecordDBHandle dbhandle = new PaymentRecordDBHandle();
@@ -62,6 +64,16 @@ namespace Project1.Controllers {
 
         // GET: PaymentRecord/Edit/5
         public ActionResult Edit(int id) {
+
+            ProviderDBHandle pdbh = new ProviderDBHandle();
+            ViewBag.providerList = pdbh.Get();
+
+            ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
+            ViewBag.categoryList = exdbh.Get();
+
+            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            ViewBag.resourceTypeList = rtdbh.Get();
+
             PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();
             return View(sdb.Get().Find(smodel => smodel.id == id));
         }
@@ -69,6 +81,15 @@ namespace Project1.Controllers {
         // POST: PaymentRecord/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, PaymentRecordModel smodel) {
+            ProviderDBHandle pdbh = new ProviderDBHandle();
+            ViewBag.providerList = pdbh.Get();
+
+            ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
+            ViewBag.categoryList = exdbh.Get();
+
+            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            ViewBag.resourceTypeList = rtdbh.Get();
+
             try {
                 PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();
                 sdb.UpdateDetails(smodel);
@@ -90,10 +111,21 @@ namespace Project1.Controllers {
                 return View();
             }
         }
-        
-        public IEnumerable<ProviderModel> getListProviders() {
+
+        // GET: PaymentRecord/Edit/5
+        public ActionResult Details(int id) {
+
             ProviderDBHandle pdbh = new ProviderDBHandle();
-            return pdbh.Get();
+            ViewBag.providerList = pdbh.Get();
+
+            ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
+            ViewBag.categoryList = exdbh.Get();
+
+            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            ViewBag.resourceTypeList = rtdbh.Get();
+
+            PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();
+            return View(sdb.Get().Find(smodel => smodel.id == id));
         }
     }
 }
