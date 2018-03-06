@@ -69,7 +69,7 @@ End
 
 /*=======================Provider=========================*/
 
-Create procedure [dbo].[AddNewProvider](
+Create or alter  procedure [dbo].[AddNewProvider](
 	@detail varchar(500)
 )  
 as
@@ -80,7 +80,7 @@ begin
 End
 
 
-Create procedure [dbo].[UpdateProvider](  
+Create or alter  procedure [dbo].[UpdateProvider](  
 	@id int,
 	@detail varchar(500)
 ) 
@@ -112,27 +112,31 @@ End
 /*==================recurenceType=========================*/
 
 
-Create procedure [dbo].[AddNewRecurenceType](
-	@detail varchar(500)
+Create or alter procedure [dbo].[AddNewRecurenceType](
+	@detail varchar(500),
+	@days int
 )  
 as
 begin
 	Insert into recurenceType values(
-		@detail
+		@detail,
+		@days
 	)
 End
 
 
 
-Create procedure [dbo].[UpdateRecurenceType](  
+Create or alter procedure [dbo].[UpdateRecurenceType](  
 	@id int,
-	@detail varchar(500)
+	@detail varchar(500),
+	@days int
 ) 
 as  
 begin  
 	UPDATE [recurenceType]   
 		SET
-		[detail] = @detail
+		[detail] = @detail,
+		[days] = @days
 			WHERE [id] = @id
 End
 

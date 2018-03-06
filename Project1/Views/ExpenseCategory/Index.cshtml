@@ -8,15 +8,15 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Blank Page
-            <small>Subheading</small>
+            Expense
+            <small>Category</small>
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
             </li>
             <li class="active">
-                <i class="fa fa-file"></i> Blank Page
+                <i class="fa fa-file"></i> Expense Category
             </li>
         </ol>
     </div>
@@ -25,8 +25,6 @@
 
 <div class="row">
     <div class="col-xl-12">
-        <h2 class="page-header">Flot Charts</h2>
-
         <p>
             @Html.ActionLink("Create New", "Create")
         </p>
@@ -35,9 +33,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.detail)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.priority)
-                </th>
                 <th></th>
             </tr>
 
@@ -45,9 +40,6 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.detail)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.priority)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.id }) |

@@ -9,6 +9,7 @@ namespace Project1.Models {
         [Display(Name = "Id")]
         public int id { get; set; }
 
+        [Display(Name = "Detail")]
         [Required(ErrorMessage = "Detail is required.")]
         public string detail { get; set; }
     }

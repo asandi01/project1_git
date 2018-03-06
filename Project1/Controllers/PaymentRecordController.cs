@@ -26,7 +26,7 @@ namespace Project1.Controllers {
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
             ViewBag.categoryList = exdbh.Get();
 
-            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            RecurenceTypeDBHandle rtdbh = new RecurenceTypeDBHandle();
             ViewBag.resourceTypeList = rtdbh.Get();
 
             return View();
@@ -42,7 +42,7 @@ namespace Project1.Controllers {
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
             ViewBag.categoryList = exdbh.Get();
 
-            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            RecurenceTypeDBHandle rtdbh = new RecurenceTypeDBHandle();
             ViewBag.resourceTypeList = rtdbh.Get();
 
 
@@ -71,7 +71,7 @@ namespace Project1.Controllers {
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
             ViewBag.categoryList = exdbh.Get();
 
-            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            RecurenceTypeDBHandle rtdbh = new RecurenceTypeDBHandle();
             ViewBag.resourceTypeList = rtdbh.Get();
 
             PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();
@@ -87,7 +87,7 @@ namespace Project1.Controllers {
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
             ViewBag.categoryList = exdbh.Get();
 
-            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            RecurenceTypeDBHandle rtdbh = new RecurenceTypeDBHandle();
             ViewBag.resourceTypeList = rtdbh.Get();
 
             try {
@@ -121,7 +121,7 @@ namespace Project1.Controllers {
             ExpenseCategoryDBHandle exdbh = new ExpenseCategoryDBHandle();
             ViewBag.categoryList = exdbh.Get();
 
-            ResourceTypeDBHandle rtdbh = new ResourceTypeDBHandle();
+            RecurenceTypeDBHandle rtdbh = new RecurenceTypeDBHandle();
             ViewBag.resourceTypeList = rtdbh.Get();
 
             PaymentRecordDBHandle sdb = new PaymentRecordDBHandle();

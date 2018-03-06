@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 
 namespace Project1.Models {
-    public class ResourceTypeDBHandle {
+    public class RecurenceTypeDBHandle {
 
         private SqlConnection con;
         private void connection() {
@@ -16,12 +16,13 @@ namespace Project1.Models {
         }
 
         // **************** ADD NEW *********************
-        public bool Add(ResourceTypeModel smodel) {
+        public bool Add(RecurenceTypeModel smodel) {
             connection();
             SqlCommand cmd = new SqlCommand("AddNewRecurenceType", con);
             cmd.CommandType = CommandType.StoredProcedure;
             
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
+            cmd.Parameters.AddWithValue("@days", smodel.days);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();
@@ -34,9 +35,9 @@ namespace Project1.Models {
         }
 
         // ********** VIEW DETAILS ********************
-        public List<ResourceTypeModel> Get() {
+        public List<RecurenceTypeModel> Get() {
             connection();
-            List<ResourceTypeModel> list = new List<ResourceTypeModel>();
+            List<RecurenceTypeModel> list = new List<RecurenceTypeModel>();
 
             SqlCommand cmd = new SqlCommand("GetRecurenceTypes", con);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -49,22 +50,24 @@ namespace Project1.Models {
 
             foreach (DataRow dr in dt.Rows) {
                 list.Add(
-                    new ResourceTypeModel {
+                    new RecurenceTypeModel {
                         id = Convert.ToInt32(dr["id"]),
-                        detail = Convert.ToString(dr["detail"])
+                        detail = Convert.ToString(dr["detail"]),
+                        days = Convert.ToInt32(dr["days"])
                     });
             }
             return list;
         }
 
         // ***************** UPDATE DETAILS *********************
-        public bool UpdateDetails(ResourceTypeModel smodel) {
+        public bool UpdateDetails(RecurenceTypeModel smodel) {
             connection();
             SqlCommand cmd = new SqlCommand("UpdateRecurenceType", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@id", smodel.id);
             cmd.Parameters.AddWithValue("@detail", smodel.detail);
+            cmd.Parameters.AddWithValue("@days", smodel.days);
 
             con.Open();
             int i = cmd.ExecuteNonQuery();

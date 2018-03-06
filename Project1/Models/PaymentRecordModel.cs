@@ -20,8 +20,7 @@ namespace Project1.Models {
         public double amount { get; set; }
 
         [Display(Name = "Recurrence")]
-        [Required(ErrorMessage = "Pecurrence is required.")]
-        public int recurrence { get; set; }
+        public bool recurrence { get; set; }
 
         [Display(Name = "Recurrence Option")]
         public int recurrenciaTypeId { get; set; }

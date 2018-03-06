@@ -20,9 +20,19 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+    <!--Error: Bootstrap tooltips require Tether-->
+    <script src="~/assets/js/tether.min.js"></script>
 
     <!-- jQuery -->
-    <script src="~/assets/js/jquery.js"></script>
+    <script src="~/assets/js/jquery.js"></script>    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+
+    <!-- Datepicker -->
+    <link href="~/assets/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+    <script src="~/assets/js/plugins/moment-with-locales.js"></script>
+    <script src="~/assets/js/plugins/bootstrap-datetimepicker.js"></script>
+
 </head>
 <body>
     <div id="wrapper">
@@ -33,72 +43,16 @@
                 <button class="navbar-toggler hidden-sm-up pull-sm-right" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     &#9776;
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin 4</a>
+                <a class="navbar-brand" href="index.html">Personal Payments</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-nav top-nav navbar-right pull-xs-right">
-                <li class="dropdown nav-item active">
-                    <!-- <div class="dropdown"> -->
-                    <a class="nav-link dropdown-toggle" href="javascript:;" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="dropdown-item message-preview">
-                            <a href="javascript:;">
-                                <div class="media">
-                                    <span class="media-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-item message-preview">
-                            <a href="javascript:;">
-                                <div class="media">
-                                    <span class="media-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-item message-preview">
-                            <a href="javascript:;">
-                                <div class="media">
-                                    <span class="media-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading">
-                                            <strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-item message-footer">
-                            <a href="javascript:;">Read All New Messages</a>
-                        </li>
-                    </ul>
-                    <!-- </div> -->
-                </li>
                 <li class="dropdown nav-item">
                     <!-- <div class="dropdown"> -->
-                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span></a>
-                    <ul class="dropdown-menu alert-dropdown">
+                    <a href="/Alerts" class="nav-link" aria-haspopup="true">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                    <!--<ul class="dropdown-menu alert-dropdown">
                         <li class="dropdown-item">
                             <a href="javascript:;">Alert Name <span class="label label-default"> Alert Badge</span></a>
                         </li>
@@ -121,11 +75,14 @@
                         <li class="dropdown-item">
                             <a href="javascript:;">View All</a>
                         </li>
-                    </ul>
+                    </ul>-->
                     <!-- </div> -->
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                <!--<li class="dropdown nav-item">
+                    <a href="javascript:;" class="nav-link" data-toggle="dropdown">
+                        <i class="fa fa-user"></i> John Smith 
+                        <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item">
                             <a href="javascript:;"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -141,46 +98,33 @@
                             <a href="javascript:;"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-toggleable-sm navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav list-group">
                     <li class="list-group-item">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                        <a href="/PaymentRecord"><i class="fa fa-fw fa-money"></i> Payment Record</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                        <a href="/IncomeRecord"><i class="fa fa-fw fa-table"></i> Income Record</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                        <a href="/ExpenseCategory"><i class="fa fa-fw fa-edit"></i> Expense Category</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                        <a href="/Provider"><i class="fa fa-fw fa-desktop"></i> Providers</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                        <a href="/RecurenceType"><i class="fa fa-fw fa-retweet"></i> Recurence</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="list-group collapse">
-                            <li class="list-group-item">
-                                <a href="javascript:;">Dropdown Item</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="javascript:;">Dropdown Item</a>
-                            </li>
-                        </ul>
+                        <a href="/User"><i class="fa fa-fw fa-wrench"></i> Users</a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -194,7 +138,5 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/assets/js/bootstrap.min.js"></script>
 </body>
 </html>

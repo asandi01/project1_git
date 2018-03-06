@@ -11,12 +11,15 @@ namespace Project1.Models {
 
         public int idUser { get; set; }
 
+        [Display(Name = "Detail")]
         [Required(ErrorMessage = "Detail is required.")]
         public string detail { get; set; }
 
+        [Display(Name = "Amount")]
         [Required(ErrorMessage = "Amount is required.")]
         public double amount { get; set; }
 
+        [Display(Name = "Payment Date")]
         [DisplayFormat(DataFormatString = "{0:d}")]
         [Required(ErrorMessage = "Payment Date is required.")]
         public DateTime paymentDate { get; set; }

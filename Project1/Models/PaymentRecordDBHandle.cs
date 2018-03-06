@@ -68,7 +68,7 @@ namespace Project1.Models {
                         id = Convert.ToInt32(dr["id"]),
                         detail = Convert.ToString(dr["detail"]),
                         amount = Convert.ToInt32(dr["amount"]),
-                        recurrence = Convert.ToInt32(dr["recurrence"]),
+                        recurrence = Convert.ToBoolean(dr["recurrence"]),
                         recurrenciaTypeId = Convert.ToInt32(dr["recurrenciaTypeId"]),
                         paymentDate = Convert.ToDateTime(dr["paymentDate"]),
                         providerId = Convert.ToInt32(dr["providerId"]),

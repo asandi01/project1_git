@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap-datetimepicker.css" />
     <Content Include="assets\css\bootstrap-rtl.css" />
     <Content Include="assets\css\bootstrap-rtl.min.css" />
     <Content Include="assets\css\bootstrap.css" />
@@ -132,12 +133,14 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\npm.js" />
+    <Content Include="assets\js\plugins\bootstrap-datetimepicker.js" />
     <Content Include="assets\js\plugins\flot\excanvas.min.js" />
     <Content Include="assets\js\plugins\flot\flot-data.js" />
     <Content Include="assets\js\plugins\flot\jquery.flot.js" />
     <Content Include="assets\js\plugins\flot\jquery.flot.pie.js" />
     <Content Include="assets\js\plugins\flot\jquery.flot.resize.js" />
     <Content Include="assets\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="assets\js\plugins\moment-with-locales.js" />
     <Content Include="assets\js\plugins\morris\morris-data.js" />
     <Content Include="assets\js\plugins\morris\morris.js" />
     <Content Include="assets\js\plugins\morris\morris.min.js" />
@@ -153,6 +156,8 @@
     <Content Include="assets\js\plugins\umd\tab.js" />
     <Content Include="assets\js\plugins\umd\tooltip.js" />
     <Content Include="assets\js\plugins\umd\util.js" />
+    <Content Include="assets\js\tether.min.js" />
+    <Content Include="Documentation\Ayuda.txt" />
     <Content Include="Documentation\sp.sql" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -178,7 +183,7 @@
     <Compile Include="Controllers\PaymentRecordController.cs" />
     <Compile Include="Controllers\IncomeRecordController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
-    <Compile Include="Controllers\ResourceTypeController.cs" />
+    <Compile Include="Controllers\RecurenceTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,9 +193,9 @@
     <Compile Include="Models\PaymentRecordModel.cs" />
     <Compile Include="Models\IncomeRecordModel.cs" />
     <Compile Include="Models\ExpenseCategoryDBHandle.cs" />
-    <Compile Include="Models\ResourceTypeDBHandle.cs" />
+    <Compile Include="Models\RecurenceTypeDBHandle.cs" />
     <Compile Include="Models\ExpenseCategoryModel.cs" />
-    <Compile Include="Models\ResourceTypeModel.cs" />
+    <Compile Include="Models\RecurenceTypeModel.cs" />
     <Compile Include="Models\ProviderModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\ProviderDBHandle.cs" />
@@ -216,9 +221,9 @@
     <Content Include="Views\Provider\Index.cshtml" />
     <Content Include="Views\Provider\Create.cshtml" />
     <Content Include="Views\Provider\Edit.cshtml" />
-    <Content Include="Views\ResourceType\Index.cshtml" />
-    <Content Include="Views\ResourceType\Edit.cshtml" />
-    <Content Include="Views\ResourceType\Create.cshtml" />
+    <Content Include="Views\RecurenceType\Index.cshtml" />
+    <Content Include="Views\RecurenceType\Edit.cshtml" />
+    <Content Include="Views\RecurenceType\Create.cshtml" />
     <Content Include="Views\ExpenseCategory\Index.cshtml" />
     <Content Include="Views\ExpenseCategory\Create.cshtml" />
     <Content Include="Views\ExpenseCategory\Edit.cshtml" />
@@ -238,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\RecurenceType\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

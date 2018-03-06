@@ -1,0 +1,12 @@
+﻿https://www.completecsharptutorial.com/mvc-articles/insert-update-delete-in-asp-net-mvc-5-without-entity-framework/
+
+http://www.c-sharpcorner.com/article/layouts-master-pages-in-Asp-Net-mvc-5-0-part-fourteen/
+
+Template
+https://www.sb-admin-bs4.strapui.com/index.html
+
+
+Server
+http://somee.com/DOKA/DOU/DOUserDefault.aspx?k1k3k5=WCXgrLAdRWGcZ534UYoNaYuudX5QZ02lkZopHzxZHBc%3d
+
+https://eonasdan.github.io/bootstrap-datetimepicker/#minimum-setup

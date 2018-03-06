@@ -9,15 +9,18 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Blank Page
-            <small>Subheading</small>
+            Expense
+            <small>Category</small>
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
+            </li>
+            <li>
+                <i class="fa fa-edit"></i>  <a href="/ExpenseCategory">Expense Category</a>
             </li>
             <li class="active">
-                <i class="fa fa-file"></i> Blank Page
+                <i class="fa fa-file"></i> Edit
             </li>
         </ol>
     </div>
@@ -25,14 +28,13 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-xl-12">
+    <div class="col-xl-6">
         <h2 class="page-header">Edit</h2>
 
         @using (Html.BeginForm()) {
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h4>ExpenseCategoryModel</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.id)
@@ -48,7 +50,11 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.priority, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.priority, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.DropDownListFor(model => model.priority, new[] {
+                            new SelectListItem() {Text = "Indispensable", Value = "1"},
+                            new SelectListItem() {Text = "Basic", Value = "2"},
+                            new SelectListItem() {Text = "Free", Value = "3"}
+                        }, "Choose an option", new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.priority, "", new { @class = "text-danger" })
                     </div>
                 </div>
