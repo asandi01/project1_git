@@ -337,3 +337,24 @@ as
 begin  
    select * from paymentRecord WHERE idUser = @idUser
 End;
+
+
+
+
+/*============Alerts============*/
+	
+CREATE OR ALTER Procedure [dbo].[GetAlerts]  
+
+AS  
+BEGIN  
+	SELECT p.paymentDate
+		,p.id
+		,p.detail
+		,p.amount
+		, rt.days
+		,DATEADD(day, rt.days, p.paymentDate) AS sumaryDate
+	FROM [dbo].[paymentRecord] p
+		INNER JOIN [dbo].[recurenceType] rt 
+		ON p.recurrenciaTypeId = rt.id
+		WHERE p.recurrence = 1;
+END;

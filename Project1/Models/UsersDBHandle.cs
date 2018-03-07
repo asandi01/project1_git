@@ -103,8 +103,7 @@ namespace Project1.Models {
             else
                 return false;
         }
-
-
+        
         public static string MD5Hash(string input) {
             StringBuilder hash = new StringBuilder();
             MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();

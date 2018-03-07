@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Project1.Models.AlertModel>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/shared/_LayoutPage.cshtml";
@@ -106,5 +107,51 @@
             </div>
         </div>
     </div>
+
+
+
+
+    <div class="col-xl-6 col-lg-12">
+        <h2>Alerts</h2>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.detail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.paymentDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.amount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.sumDate)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.detail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.paymentDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.amount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.sumDate)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 <!-- /.row -->
