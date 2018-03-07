@@ -24,5 +24,12 @@ namespace Project1.Models {
 
         [Display(Name = "Sum Date")]
         public DateTime sumDate { get; set; }
+
+        [Display(Name = "Payments current Month")]
+        public double paymentCurrentMonth { get; set; }
+
+        [Display(Name = "Payments previous  Month")]
+        public double paymentPreviousMonth { get; set; }
+
     }
 }

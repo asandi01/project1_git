@@ -17,7 +17,7 @@ namespace Project1.Models {
             con = new SqlConnection(constring);
         }
 
-        // ********** VIEW User DETAILS ********************
+        // ********** Get alert Soon to pay ********************
         public List<AlertModel> GetAlerts() {
             connection();
             List<AlertModel> list = new List<AlertModel>();
@@ -50,5 +50,78 @@ namespace Project1.Models {
             }
             return list;
         }
+        
+        // ********** Get alert Soon to pay ********************
+        private double GetPaymentsByMont(int montLess) {
+            connection();
+            SqlCommand cmd = new SqlCommand("GetPaymentCurrentMonth", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@montLess", montLess);
+
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            double currentMont = 0;
+            foreach (DataRow dr in dt.Rows) {
+                currentMont = Convert.ToDouble(dr["sumamount"]);
+            }
+            return currentMont;
+        }
+
+        public double GetPayments() {
+            double currentMont = GetPaymentsByMont(0);
+            double previousMont = GetPaymentsByMont(1);
+
+            return currentMont - previousMont;
+        }
+
+        private double GetIncomentByMont(int montLess) {
+            connection();
+            SqlCommand cmd = new SqlCommand("GetIncomentByMonth", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@montLess", montLess);
+
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            double currentMont = 0;
+            foreach (DataRow dr in dt.Rows) {
+                currentMont = Convert.ToDouble(dr["sumamount"]);
+            }
+            return currentMont;
+        }
+
+        public double GetIncoments() {
+            double currentMont = GetIncomentByMont(0);
+            double previousMont = GetIncomentByMont(1);
+
+            return currentMont - previousMont;
+        }
+
+        public double getBeterP() {
+            double currentMontIP = GetIncomentByMont(1);
+            double currentMontPP = GetPaymentsByMont(1);
+
+            return currentMontIP - currentMontPP;
+        }
+
+        public double getBeterC() {
+            double currentMontIC = GetIncomentByMont(0);
+            double currentMontPC = GetPaymentsByMont(0);
+
+            return currentMontIC - currentMontPC;
+        }
+
+
     }
 }

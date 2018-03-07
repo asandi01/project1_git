@@ -13,6 +13,18 @@ namespace Project1.Controllers
         public ActionResult Index() {
             AlertDBHandle dbhandle = new AlertDBHandle();
             ModelState.Clear();
+
+            ViewBag.payments = dbhandle.GetPayments();
+            ViewBag.incoment = dbhandle.GetIncoments();
+
+            if(dbhandle.getBeterP() > dbhandle.getBeterC()) {
+                ViewBag.beterNumber = dbhandle.getBeterP();
+                ViewBag.beterText = "The previous Mont was beter";
+            }else {
+                ViewBag.beterNumber = dbhandle.getBeterC();
+                ViewBag.beterText = "The current Mont is beter";
+            }
+
             return View(dbhandle.GetAlerts());
         }
     }

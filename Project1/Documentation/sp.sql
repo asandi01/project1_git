@@ -358,3 +358,26 @@ BEGIN
 		ON p.recurrenciaTypeId = rt.id
 		WHERE p.recurrence = 1;
 END;
+
+
+/*==============GetPaymentCurrentMonth==========*/
+CREATE OR ALTER Procedure [dbo].[GetPaymentCurrentMonth]  
+	@montLess int
+AS  
+BEGIN  
+	SELECT  SUM(p.amount) AS sumamount
+	FROM [dbo].[paymentRecord] p
+	WHERE DATEPART(month, p.paymentDate) = MONTH(getdate()) - @montLess
+END;
+
+
+
+/*==============GetIncomentByMonth==========*/
+CREATE OR ALTER Procedure [dbo].[GetIncomentByMonth]  
+	@montLess int
+AS  
+BEGIN 
+	SELECT  SUM(i.amount) AS sumamount
+	FROM [dbo].[incomeRecord] i
+	WHERE DATEPART(month, i.paymentDate) = MONTH(getdate()) - @montLess
+END;
