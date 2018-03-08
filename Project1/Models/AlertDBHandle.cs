@@ -122,6 +122,87 @@ namespace Project1.Models {
             return currentMontIC - currentMontPC;
         }
 
+        // ********** Get Payment By Expense Category Current Month ********************
+        public List<AlertModel> GetPaymentByExpenseCategoryCurrentMonth() {
+            connection();
+            List<AlertModel> list = new List<AlertModel>();
 
+            SqlCommand cmd = new SqlCommand("GetPaymentByExpenseCategoryCurrentMonth", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows) {
+                list.Add(
+                    new AlertModel {
+                        detail = Convert.ToString(dr["detail"]),
+                        amount = Convert.ToDouble(dr["sumamount"])
+                    });
+            }
+            return list;
+        }
+
+        public double GetFutureProjectionsPay() {
+            connection();
+            SqlCommand cmd = new SqlCommand("GetFutureProjectionsPay", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            double currentMont = 0;
+            foreach (DataRow dr in dt.Rows) {
+                currentMont = Convert.ToDouble(dr["payMonth"]);
+            }
+            return currentMont;
+        }
+
+        public double GetFutureProjectionsIncoment() {
+            connection();
+            SqlCommand cmd = new SqlCommand("GetFutureProjectionsIncoment", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            double currentMont = 0;
+            foreach (DataRow dr in dt.Rows) {
+                currentMont = Convert.ToDouble(dr["incomentMonth"]);
+            }
+
+            return currentMont - GetFutureProjectionsPay();
+        }
+
+        public double GetFutureProjectionsSaving() {
+            connection();
+            SqlCommand cmd = new SqlCommand("GetFutureProjectionsSaving", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            double currentMont = 0;
+            foreach (DataRow dr in dt.Rows) {
+                currentMont = Convert.ToDouble(dr["payMonth"]);
+            }
+
+            return GetFutureProjectionsPay() - currentMont;
+        }
     }
 }

@@ -181,6 +181,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ExpenseCategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentByExpenseCategoryController.cs" />
     <Compile Include="Controllers\PaymentRecordController.cs" />
     <Compile Include="Controllers\IncomeRecordController.cs" />
     <Compile Include="Controllers\ProviderController.cs" />
@@ -237,6 +238,7 @@
     <Content Include="Views\PaymentRecord\Create.cshtml" />
     <Content Include="Views\PaymentRecord\Edit.cshtml" />
     <Content Include="Views\PaymentRecord\Details.cshtml" />
+    <Content Include="Views\PaymentByExpenseCategory\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

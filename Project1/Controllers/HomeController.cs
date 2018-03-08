@@ -25,6 +25,14 @@ namespace Project1.Controllers
                 ViewBag.beterText = "The current Mont is beter";
             }
 
+            ViewBag.previousMonth = dbhandle.getBeterP();
+            ViewBag.currentMonth = dbhandle.getBeterC();
+
+
+            ViewBag.nextPayment = dbhandle.GetFutureProjectionsPay();
+            ViewBag.nextSaving = dbhandle.GetFutureProjectionsIncoment();
+            ViewBag.savingIndispensable = dbhandle.GetFutureProjectionsSaving();
+
             return View(dbhandle.GetAlerts());
         }
     }

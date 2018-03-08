@@ -320,3 +320,47 @@ ul.alert-dropdown {
 .bg-white {
     background: #fff;
 }
+
+
+/*===========================*/
+.card-gray {
+    border-color: #2E2E2E;
+}
+
+.card-gray > .card-header {
+    border-color: #2E2E2E;
+    color: #fff;
+    background-color: #2E2E2E;
+}
+
+.card-gray > a {
+    color: #2E2E2E;
+}
+
+.card-gray > a:hover {
+    color: #2E2E2E;
+}
+
+
+
+.card-cian {
+    border-color: #088A85;
+}
+
+.card-cian > .card-header {
+    border-color: #088A85;
+    color: #fff;
+    background-color: #088A85;
+}
+
+.card-cian > a {
+    color: #088A85;
+}
+
+.card-cian > a:hover {
+    color: #088A85;
+}
+
+.card{
+    /*height: 150px;*/
+}

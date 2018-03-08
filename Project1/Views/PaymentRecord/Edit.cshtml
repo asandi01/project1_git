@@ -169,6 +169,10 @@
             $('#recurrenciaTypeId').val(this.value);
         })
 
+        if ($('#recurrence:checkbox:checked').length > 0) {
+            $('#recurrenceHidden').show();
+        }
+
         $('#recurrence').click(function () {
             if ($('#recurrence:checkbox:checked').length > 0) {
                 $('#recurrenceHidden').show();

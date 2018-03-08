@@ -381,3 +381,63 @@ BEGIN
 	FROM [dbo].[incomeRecord] i
 	WHERE DATEPART(month, i.paymentDate) = MONTH(getdate()) - @montLess
 END;
+
+
+
+/*==================GetPaymentByExpenseCategoryCurrentMonth================*/
+CREATE OR ALTER Procedure [dbo].[GetPaymentByExpenseCategoryCurrentMonth]
+AS  
+BEGIN  
+	SELECT 
+		ec.detail
+		,SUM(p.amount) AS sumamount
+		
+	FROM [dbo].[paymentRecord] p
+	INNER JOIN expenseCategory ec
+		ON p.expenseCategoryId = ec.id
+	WHERE DATEPART(month, p.paymentDate) = MONTH(getdate())
+	GROUP BY ec.detail
+END;
+
+
+/*==================GetFutureProjectionsPay by Month================*/
+CREATE OR ALTER Procedure [dbo].[GetFutureProjectionsPay]
+AS  
+BEGIN  
+	SELECT 
+		SUM(CAST(p.amount/rt.days AS float)*30) AS payMonth
+	FROM [dbo].[paymentRecord] p
+	INNER JOIN [dbo].[recurenceType] rt
+		ON p.recurrenciaTypeId = rt.id
+	WHERE DATEPART(month, p.paymentDate) = MONTH(getdate())
+	AND p.recurrence = 1
+END;
+
+
+/*============GetFutureProjectionsIncoment===========*/
+CREATE OR ALTER Procedure [dbo].[GetFutureProjectionsIncoment]
+AS  
+BEGIN  
+	SELECT 
+		SUM(i.amount) AS incomentMonth
+	FROM [dbo].[incomeRecord] i
+	WHERE DATEPART(month, i.paymentDate) = MONTH(getdate())
+END;
+
+
+/*============GetFutureProjectionsSaving===========*/
+CREATE OR ALTER Procedure [dbo].[GetFutureProjectionsSaving]
+AS  
+BEGIN  
+	SELECT 
+		SUM(CAST(p.amount/rt.days AS float)*30) AS payMonth
+	FROM [dbo].[paymentRecord] p
+	INNER JOIN [dbo].[recurenceType] rt
+		ON p.recurrenciaTypeId = rt.id
+	INNER JOIN [dbo].[expenseCategory] ec
+		ON p.expenseCategoryId = ec.id
+
+	WHERE DATEPART(month, p.paymentDate) = MONTH(getdate())
+	AND p.recurrence = 1
+	AND ec.priority = 1
+END;

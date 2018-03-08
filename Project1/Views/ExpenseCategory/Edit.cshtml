@@ -54,7 +54,7 @@
                             new SelectListItem() {Text = "Indispensable", Value = "1"},
                             new SelectListItem() {Text = "Basic", Value = "2"},
                             new SelectListItem() {Text = "Free", Value = "3"}
-                        }, "Choose an option", new { @class = "form-control" })
+                        }, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.priority, "", new { @class = "text-danger" })
                     </div>
                 </div>

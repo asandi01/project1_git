@@ -18,7 +18,9 @@
     </div>
 </div>
 <!-- /.row -->
+
 <div class="row">
+
     <div class="col-xl-3 col-lg-6">
         <div class="card card-primary card-inverse">
             <div class="card-header card-primary">
@@ -36,6 +38,106 @@
             </div>
             <div class="card-footer card-default">
                 <!--<a href="#alertsPay">
+                    <span class="pull-xs-left">View Details</span>
+                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-red card-inverse">
+            <div class="card-header card-red">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-support fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-xs-right">
+                        @{
+                            <div class="huge">
+                                @Model.Count()
+                            </div>
+                        }
+                        <div>Soon to pay</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer card-red">
+                <!--<a href="javascript:;">
+                    <span class="pull-xs-left">View Details</span>
+                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-gray card-inverse">
+            <div class="card-header card-gray">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-history fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-xs-right">
+                        <div class="huge">
+                            $@ViewBag.previousMonth
+                        </div>
+                        <div>Previou Mont</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer card-gray">
+                <!--<a href="/PaymentByExpenseCategory">
+                    <span class="pull-xs-left">Payment by expense category</span>
+                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-cian card-inverse">
+            <div class="card-header card-cian">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-clock-o fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-xs-right">
+                        <div class="huge">
+                            $@ViewBag.currentMonth
+                        </div>
+                        <div>Current Mont</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer card-cian">
+                <a href="/PaymentByExpenseCategory">
+                    <span class="pull-xs-left">Payment by expense category</span>
+                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6">
+        <div class="card card-yellow card-inverse">
+            <div class="card-header card-yellow">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-shopping-cart fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-xs-right">
+                        <div class="huge">$@ViewBag.payments</div>
+                        <div>Payments record between current month and previous</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer card-yellow">
+                <!--<a href="javascript:;">
                     <span class="pull-xs-left">View Details</span>
                     <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
@@ -67,101 +169,95 @@
         </div>
     </div>
 
-    <div class="col-xl-3 col-lg-6">
-        <div class="card card-yellow card-inverse">
-            <div class="card-header card-yellow">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-xs-right">
-                        <div class="huge">$@ViewBag.payments</div>
-                        <div>Payments record between current month and previous</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer card-yellow">
-                <!--<a href="javascript:;">
-                    <span class="pull-xs-left">View Details</span>
-                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </a>-->
-            </div>
-        </div>
-    </div>
+    
 
-
-    <div class="col-xl-3 col-lg-6">
-        <div class="card card-red card-inverse">
-            <div class="card-header card-red">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-xs-right">
-                        @{
-                            <div class="huge">
-                                @Model.Count()
-                            </div>
-                        }
-                        <div>Soon to pay</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-footer card-red">
-                <!--<a href="javascript:;">
-                    <span class="pull-xs-left">View Details</span>
-                    <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </a>-->
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="col-xl-6 col-lg-12">
-        <h2>Alerts: <small>soon to pay</small></h2>
-        <div class="table-responsive" id="alertsPay">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.detail)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.paymentDate)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.amount)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.sumDate)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model) {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.detail)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.paymentDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.amount)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sumDate)
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
 
 </div>
-<!-- /.row -->
+
+
+<div class="row">
+
+    <div class="col-xl-4 col-lg-12">
+        <div class="card card-default">
+            <div class="card-header card-default">
+                <i class="fa fa-support fa-fw"></i> Alerts: <small>soon to pay</small>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.detail)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.paymentDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.amount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.sumDate)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.detail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.paymentDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.amount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sumDate)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-xs-right">
+                    <!--<a href="javascript:;">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xl-4 col-lg-12">
+        <div class="card card-default">
+            <div class="card-header card-default">
+                <i class="fa fa-line-chart fa-fw"></i> Future projections
+            </div>
+            <div class="card-block">
+                <div class="list-group">
+
+                    <a href="javascript:;" class="list-group-item">
+                        <span class="label label-pill label-default pull-xs-right">$@ViewBag.nextPayment </span>
+                        <i class="fa fa-fw fa-money"></i> Next payment record
+                    </a>
+
+                    <a href="javascript:;" class="list-group-item">
+                        <span class="label label-pill label-default pull-xs-right">$@ViewBag.nextSaving</span>
+                        <i class="fa fa-fw fa-calendar"></i> Next month saving
+                    </a>
+
+                    <a href="javascript:;" class="list-group-item">
+                        <span class="label label-pill label-default pull-xs-right">$@ViewBag.savingIndispensable</span>
+                        <i class="fa fa-fw fa-bicycle"></i> Indispensable payments
+                    </a>
+
+                </div>
+                <div class="text-xs-right">
+                    <a href="javascript:;">This data information is regarding this month. <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
