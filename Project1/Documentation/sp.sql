@@ -1,4 +1,19 @@
-﻿Create procedure [dbo].[AddNewPayment](
+﻿CREATE TABLE [dbo].[paymentRecord]
+(
+	[idPaymentRecord] INT NOT NULL PRIMARY KEY, 
+    [idUser] INT NULL, 
+    [anount] INT NULL, 
+    [recurrence] INT NULL, 
+    [recurrenceType] INT NULL, 
+    [paymentDate] DATE NULL, 
+    [serviceType] INT NULL, 
+    [detail] VARCHAR(500) NULL, 
+    [provider] INT NULL
+);
+
+
+
+Create procedure [dbo].[AddNewPayment](
 	@idPaymentRecord int,
 	@idUser int,
     @anount float,
