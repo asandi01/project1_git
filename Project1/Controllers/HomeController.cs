@@ -19,10 +19,10 @@ namespace Project1.Controllers
 
             if(dbhandle.getBeterP() > dbhandle.getBeterC()) {
                 ViewBag.beterNumber = dbhandle.getBeterP();
-                ViewBag.beterText = "The previous Mont was beter";
+                ViewBag.beterText = "The previous Mont was beter / \n El mes anterior fue mejor";
             }else {
                 ViewBag.beterNumber = dbhandle.getBeterC();
-                ViewBag.beterText = "The current Mont is beter";
+                ViewBag.beterText = "The current Mont is beter / \n El mes actual es mejor";
             }
 
             ViewBag.previousMonth = dbhandle.getBeterP();

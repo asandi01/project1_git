@@ -59,7 +59,7 @@
                                 @Model.Count()
                             </div>
                         }
-                        <div>Soon to pay</div>
+                        <div>Soon to pay / Prontos a pagar</div>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         <div class="huge">
                             $@ViewBag.previousMonth
                         </div>
-                        <div>Previou Mont</div>
+                        <div>Previou Mont / Mes anterior</div>
                     </div>
                 </div>
             </div>
@@ -109,13 +109,16 @@
                         <div class="huge">
                             $@ViewBag.currentMonth
                         </div>
-                        <div>Current Mont</div>
+                        <div>Current Mont / Mes actual</div>
                     </div>
                 </div>
             </div>
             <div class="card-footer card-cian">
                 <a href="/PaymentByExpenseCategory">
-                    <span class="pull-xs-left">Payment by expense category</span>
+                    <span class="pull-xs-left">
+                        Payment by expense category /
+                        <br /> Pago por categoria
+                    </span>
                     <span class="pull-xs-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </a>
@@ -132,7 +135,10 @@
                     </div>
                     <div class="col-xs-9 text-xs-right">
                         <div class="huge">$@ViewBag.payments</div>
-                        <div>Payments record between current month and previous</div>
+                        <div>
+                            Payments record between current month and previous / <br />
+                            Diferencia de pagos entre el mes actual y el anterior
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,7 +161,9 @@
                     </div>
                     <div class="col-xs-9 text-xs-right">
                         <div class="huge">$@ViewBag.incoment</div>
-                        <div>Incoment record between current month and previous</div>
+                        <div>Incoment record between current month and previous / <br/>
+                            Diferencia de ingresos entre el mes actual y el anterior 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -169,18 +177,13 @@
         </div>
     </div>
 
-    
-
 
 </div>
-
-
 <div class="row">
-
     <div class="col-xl-4 col-lg-12">
         <div class="card card-default">
             <div class="card-header card-default">
-                <i class="fa fa-support fa-fw"></i> Alerts: <small>soon to pay</small>
+                <i class="fa fa-support fa-fw"></i> Alerts: <small>soon to pay / Prontos a pagar</small>
             </div>
             <div class="card-block">
                 <div class="table-responsive">
@@ -211,7 +214,7 @@
                                         @Html.DisplayFor(modelItem => item.paymentDate)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.amount)
+                                        $@Html.DisplayFor(modelItem => item.amount)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.sumDate)
@@ -228,28 +231,27 @@
         </div>
     </div>
 
-
     <div class="col-xl-4 col-lg-12">
         <div class="card card-default">
             <div class="card-header card-default">
-                <i class="fa fa-line-chart fa-fw"></i> Future projections
+                <i class="fa fa-line-chart fa-fw"></i> Future projections / <small>Proyección futura</small>
             </div>
             <div class="card-block">
                 <div class="list-group">
 
                     <a href="javascript:;" class="list-group-item">
                         <span class="label label-pill label-default pull-xs-right">$@ViewBag.nextPayment </span>
-                        <i class="fa fa-fw fa-money"></i> Next payment record
+                        <i class="fa fa-fw fa-money"></i> Next payment record / Siguiente pago
                     </a>
 
                     <a href="javascript:;" class="list-group-item">
                         <span class="label label-pill label-default pull-xs-right">$@ViewBag.nextSaving</span>
-                        <i class="fa fa-fw fa-calendar"></i> Next month saving
+                        <i class="fa fa-fw fa-calendar"></i> Next month saving / Ahorro siguiente mes
                     </a>
 
                     <a href="javascript:;" class="list-group-item">
                         <span class="label label-pill label-default pull-xs-right">$@ViewBag.savingIndispensable</span>
-                        <i class="fa fa-fw fa-bicycle"></i> Indispensable payments
+                        <i class="fa fa-fw fa-bicycle"></i> Indispensable payments / Pagos indispensables
                     </a>
 
                 </div>
@@ -259,5 +261,4 @@
             </div>
         </div>
     </div>
-    
 </div>
