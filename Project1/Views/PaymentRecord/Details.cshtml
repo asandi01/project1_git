@@ -60,7 +60,7 @@
 
                             <dd>
                                 @{ 
-                                    if(Model.recurrence == 1) {
+                                    if(Model.recurrence) {
                                         <p>True</p>
                                     } else {
                                         <p>False</p>
@@ -68,7 +68,7 @@
                                 }
                             </dd>
                             @{ 
-                                if (Model.recurrence == 1) {
+                                if (Model.recurrence) {
                                     <dt>
                                         @Html.DisplayNameFor(model => model.recurrenciaTypeId)
                                     </dt>
