@@ -178,6 +178,18 @@
     <None Include="Service References\PaymentWS\PaymentRecord.disco" />
     <None Include="Service References\PaymentWS\configuration91.svcinfo" />
     <None Include="Service References\PaymentWS\configuration.svcinfo" />
+    <Content Include="Service References\PaymentWS\Project1.PaymentWS.AddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PaymentWS\Project1.PaymentWS.PaymentRecordModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PaymentWS\Project1.PaymentWS.UpdateDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PaymentWS\Project1.PaymentWS.GetDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\PaymentWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -53,7 +53,7 @@ namespace WS {
 
         // ********** VIEW DETAILS ********************
         [WebMethod]
-        public List<PaymentRecordModel> Get() {
+        public List<PaymentRecordModel> GetDetails() {
             connection();
             List<PaymentRecordModel> list = new List<PaymentRecordModel>();
 
