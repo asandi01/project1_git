@@ -173,55 +173,6 @@
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
-    <None Include="Service References\ExpenseCategoryWS\ExpenseCategory.wsdl" />
-    <None Include="Service References\IncomeRecordWS\IncomeRecord.wsdl" />
-    <None Include="Service References\PaymentWS\PaymentRecord.disco" />
-    <None Include="Service References\PaymentWS\configuration91.svcinfo" />
-    <None Include="Service References\PaymentWS\configuration.svcinfo" />
-    <Content Include="Service References\PaymentWS\Project1.PaymentWS.AddResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\PaymentWS\Project1.PaymentWS.PaymentRecordModel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\PaymentWS\Project1.PaymentWS.UpdateDetailsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\PaymentWS\Project1.PaymentWS.GetDetailsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\PaymentWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\IncomeRecordWS\IncomeRecord.disco" />
-    <None Include="Service References\IncomeRecordWS\configuration91.svcinfo" />
-    <None Include="Service References\IncomeRecordWS\configuration.svcinfo" />
-    <None Include="Service References\IncomeRecordWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ProviderWS\Provider.disco" />
-    <None Include="Service References\ProviderWS\configuration91.svcinfo" />
-    <None Include="Service References\ProviderWS\configuration.svcinfo" />
-    <None Include="Service References\ProviderWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ExpenseCategoryWS\ExpenseCategory.disco" />
-    <None Include="Service References\ExpenseCategoryWS\configuration91.svcinfo" />
-    <None Include="Service References\ExpenseCategoryWS\configuration.svcinfo" />
-    <None Include="Service References\ExpenseCategoryWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\RecurenceTypeWS\RecurenceType.disco" />
-    <None Include="Service References\RecurenceTypeWS\configuration91.svcinfo" />
-    <None Include="Service References\RecurenceTypeWS\configuration.svcinfo" />
-    <None Include="Service References\RecurenceTypeWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Web.config" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -256,31 +207,6 @@
     <Compile Include="Models\ProviderDBHandle.cs" />
     <Compile Include="Models\UsersDBHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ExpenseCategoryWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\IncomeRecordWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\PaymentWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ProviderWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\RecurenceTypeWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -315,9 +241,6 @@
     <Content Include="Views\PaymentRecord\Edit.cshtml" />
     <Content Include="Views\PaymentRecord\Details.cshtml" />
     <Content Include="Views\PaymentByExpenseCategory\Index.cshtml" />
-    <None Include="Service References\PaymentWS\PaymentRecord.wsdl" />
-    <None Include="Service References\ProviderWS\Provider.wsdl" />
-    <None Include="Service References\RecurenceTypeWS\RecurenceType.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -330,13 +253,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ExpenseCategoryWS\" />
-    <WCFMetadataStorage Include="Service References\IncomeRecordWS\" />
-    <WCFMetadataStorage Include="Service References\PaymentWS\" />
-    <WCFMetadataStorage Include="Service References\ProviderWS\" />
-    <WCFMetadataStorage Include="Service References\RecurenceTypeWS\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
