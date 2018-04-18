@@ -50,12 +50,12 @@ namespace Project1.Models {
             }
             return list;
         }
-        
+
         // ********** Get alert Soon to pay ********************
         private double GetPaymentsByMont(int montLess) {
             connection();
             SqlCommand cmd = new SqlCommand("GetPaymentCurrentMonth", con);
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType=CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@montLess", montLess);
 
@@ -66,10 +66,12 @@ namespace Project1.Models {
             sd.Fill(dt);
             con.Close();
 
-            double currentMont = 0;
-            foreach (DataRow dr in dt.Rows) {
-                currentMont = Convert.ToDouble(dr["sumamount"]);
-            }
+            double currentMont = 0;   
+                foreach (DataRow dr in dt.Rows) {                  
+                if (!"DBNull".Equals(dr["sumamount"].GetType().Name )) {
+                        currentMont=Convert.ToDouble(dr["sumamount"]);   
+                    }    
+                }
             return currentMont;
         }
 
@@ -96,7 +98,9 @@ namespace Project1.Models {
 
             double currentMont = 0;
             foreach (DataRow dr in dt.Rows) {
-                currentMont = Convert.ToDouble(dr["sumamount"]);
+                if (!"DBNull".Equals(dr["sumamount"].GetType().Name)) {
+                    currentMont = Convert.ToDouble(dr["sumamount"]);
+                }
             }
             return currentMont;
         }
