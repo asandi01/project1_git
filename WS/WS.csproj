@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <ApplicationInsightsResourceId>/subscriptions/499acf18-f131-4c26-9a39-bd058a47650d/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WS</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,6 +104,9 @@
     <None Include="Properties\PublishProfiles\albinsandi - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\albinsandi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\p1Local.pubxml" />
+    <None Include="Properties\PublishProfiles\pj1WS - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pj1WS - Web Deploy.pubxml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -151,6 +155,9 @@
       <DependentUpon>RecurenceType.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
