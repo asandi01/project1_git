@@ -47,7 +47,7 @@ namespace WS {
 
         // ********** VIEW DETAILS ********************
         [WebMethod]
-        public List<RecurenceTypeModel> Get() {
+        public List<RecurenceTypeModel> GetDetails() {
             connection();
             List<RecurenceTypeModel> list = new List<RecurenceTypeModel>();
 
@@ -69,6 +69,18 @@ namespace WS {
                     });
             }
             return list;
+        }
+
+        // ********** VIEW DETAILS ********************
+        [WebMethod]
+        public RecurenceTypeModel GetDetailsById(int id) {
+            List<RecurenceTypeModel> listPayment = GetDetails();
+            foreach (var item in listPayment) {
+                if (item.id == id) {
+                    return item;
+                }
+            }
+            return null;
         }
 
         // ***************** UPDATE DETAILS *********************

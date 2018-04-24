@@ -47,7 +47,7 @@ namespace WS {
 
         // ********** VIEW DETAILS ********************
         [WebMethod]
-        public List<ExpenseCategoryModel> Get() {
+        public List<ExpenseCategoryModel> GetDetails() {
             connection();
             List<ExpenseCategoryModel> list = new List<ExpenseCategoryModel>();
 
@@ -69,6 +69,18 @@ namespace WS {
                     });
             }
             return list;
+        }
+
+        // ********** VIEW DETAILS ********************
+        [WebMethod]
+        public ExpenseCategoryModel GetDetailsById(int id) {
+            List<ExpenseCategoryModel> listPayment = GetDetails();
+            foreach (var item in listPayment) {
+                if (item.id == id) {
+                    return item;
+                }
+            }  
+            return null;
         }
 
         // ***************** UPDATE DETAILS *********************

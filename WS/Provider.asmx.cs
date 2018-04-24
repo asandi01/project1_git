@@ -46,7 +46,7 @@ namespace WS {
 
         // ********** VIEW DETAILS ********************
         [WebMethod]
-        public List<ProviderModel> Get() {
+        public List<ProviderModel> GetDetails() {
             connection();
             List<ProviderModel> list = new List<ProviderModel>();
 
@@ -67,6 +67,18 @@ namespace WS {
                     });
             }
             return list;
+        }
+
+        // ********** VIEW DETAILS ********************
+        [WebMethod]
+        public ProviderModel GetDetailsById(int id) {
+            List<ProviderModel> listPayment = GetDetails();
+            foreach (var item in listPayment) {
+                if (item.id == id) {
+                    return item;
+                }
+            }
+            return null;
         }
 
         // ***************** UPDATE DETAILS *********************
