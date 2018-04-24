@@ -49,7 +49,7 @@ namespace WS {
 
         // ********** VIEW DETAILS ********************
         [WebMethod]
-        public List<IncomeRecordModel> Get() {
+        public List<IncomeRecordModel> GetDetails() {
             connection();
             List<IncomeRecordModel> list = new List<IncomeRecordModel>();
 
@@ -79,6 +79,19 @@ namespace WS {
                     });
             }
             return list;
+        }
+
+        // ********** VIEW DETAILS ********************
+        [WebMethod]
+        public IncomeRecordModel GetDetailsById(int id) {
+            List<IncomeRecordModel> listPayment = GetDetails();
+            foreach (var item in listPayment) {
+                if (item.id == id) {
+                    return item;
+                }
+            }
+
+            return null;
         }
 
         // ***************** UPDATE DETAILS *********************

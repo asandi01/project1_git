@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using WS.Models;
+using System.Web.Script.Services;
 
 namespace WS {
     /// <summary>
@@ -26,7 +27,7 @@ namespace WS {
         }
 
         // **************** ADD NEW *********************
-        [WebMethod]
+        [WebMethod]                                                             
         public bool Add(PaymentRecordModel smodel) {
             connection();
             SqlCommand cmd = new SqlCommand("AddPaymentRecord", con);
@@ -52,7 +53,7 @@ namespace WS {
         }
 
         // ********** VIEW DETAILS ********************
-        [WebMethod]
+        [WebMethod]                                                             
         public List<PaymentRecordModel> GetDetails() {
             connection();
             List<PaymentRecordModel> list = new List<PaymentRecordModel>();
@@ -88,9 +89,21 @@ namespace WS {
             }
             return list;
         }
+        // ********** VIEW DETAILS ********************
+        [WebMethod]
+        public PaymentRecordModel GetDetailsById(int id) {
+            List<PaymentRecordModel> listPayment = GetDetails();
+            foreach (var item in listPayment) {
+                if (item.id == id) {
+                    return item;
+                }
+            }
+
+            return null; 
+        }
 
         // ***************** UPDATE DETAILS *********************
-        [WebMethod]
+        [WebMethod]                                                            
         public bool UpdateDetails(PaymentRecordModel smodel) {
             connection();
             SqlCommand cmd = new SqlCommand("UpdatePaymentRecord", con);
@@ -116,7 +129,7 @@ namespace WS {
         }
 
         // ********************** DELETE DETAILS *******************
-        [WebMethod]
+        [WebMethod]                                                              
         public bool Delete(int id) {
             connection();
             SqlCommand cmd = new SqlCommand("DeletePaymentRecord", con);
